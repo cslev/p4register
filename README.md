@@ -27,7 +27,9 @@ If one character is sent by the client to the server, the application replaces t
     - read the registers value (empty character in the beginning) into `meta.read_from_register`
     - write the character caugth (`hdr.netcat.one_character`) into the register.
     - write the read register value (`meta.read_from_register`) into the payload's relevant part (`hdr.netcat.one_character`) 
- - Since, we modify the TCP payload, we need to recalculate the TCP checksum (this is why we have `meta.tcp_metadata`, `meta.modified`, etc.). Note that IPv4 Checksum does not need to be recalculated as we do not do any changes in that header (e.g., don't decrease TTL, don't change MAC address). See the MyComputeChecksum() for more details about the TCP checksum calculation (for  brevity, I did not use the incremental TCP checksum calculation, so each time it is recalculated from scratch - but it's OK, don't worry :)).
+ - Since, we modify the TCP payload, we need to recalculate the TCP checksum (this is why we have `meta.tcp_metadata`, `meta.modified`, etc.). 
+   - Note that IPv4 Checksum does not need to be recalculated as we do not do any changes in that header (e.g., don't decrease TTL, don't change MAC address). 
+   - See the MyComputeChecksum() for more details about the TCP checksum calculation (for  brevity, I did not use the incremental TCP checksum calculation, so each time it is recalculated from scratch - but it's OK, don't worry :)).
  
  # Compilation
  ```
