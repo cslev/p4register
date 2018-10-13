@@ -12,9 +12,13 @@ If one character is sent by the client to the server, the application replaces t
 |`d`                                    | `s`                                 |
 |` `                                    | `d`                                 |
 
-# Simplified state machine
+# Additional features
  - TCP payload, or at least 2 bytes in the beginning of it is being parsed as well
- - TCP payload length is calculated when TCP is parsed
+ - TCP Checksum recalculation as we modify the payload
+ - Debugging outputs for different headers
+ 
+# Simplified state machine
+ - TCP payload length is calculated when a TCP packet is parsed/caugth
     - if it is 0, nothing happens just port forwarding between the two ports of the switch
     - otherwise, we continue parsing
       - if tcp.dstPort is 4444, then it is our netcat communication, so we do extract those 2 bytes from the beginning of the payload
