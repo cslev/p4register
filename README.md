@@ -6,7 +6,7 @@ If one character is sent by the client to the server, the application replaces t
 # Example
 | Client@10.0.0.1                       | Server@10.0.0.2:4444                |
 | ------------------------------------- |------------------------------------ |
-|`[CLIENT]root #  netcat 10.0.0.2 4444` | `[SERVER] root # netcat -l -p 4444` |  
+|`#  netcat 10.0.0.2 4444`              | ` # netcat -l -p 4444`              |  
 |`a`                                    | ` `                                 |
 |`s`                                    | `a`                                 |
 |`d`                                    | `s`                                 |
