@@ -4,13 +4,13 @@ In particular, in this application a simple TCP netcat communication is assumed 
 If one character is sent by the client to the server, the application replaces that character with another one found/already pushed to the register. The original character, then, will update the register, therefore the server will always be behind the client with one character.
 
 # Example
-| Client@10.0.0.1                       | Server@10.0.0.2:4444                |
-| ------------------------------------- |------------------------------------ |
-|`#  netcat 10.0.0.2 4444`              | ` # netcat -l -p 4444`              |  
-|`a`                                    | ` `                                 |
-|`s`                                    | `a`                                 |
-|`d`                                    | `s`                                 |
-|` `                                    | `d`                                 |
+| Client@10.0.0.1                       | Server@10.0.0.2:4444                |  Register's old value | Register's new value |
+| ------------------------------------- |------------------------------------ | ---------------------:| -------------------: |
+|`#  netcat 10.0.0.2 4444`              | ` # netcat -l -p 4444`              |     -                 |  -                   |
+|`a`                                    | ` `                                 |     -                 | `a`                  |
+|`s`                                    | `a`                                 |     `a`               | `s`                  |
+|`d`                                    | `s`                                 |     `s`               | `d`                  |
+|` `                                    | `d`                                 |     `d`               | ` `                  |
 
 # Additional features
  - TCP payload, or at least 2 bytes in the beginning of it is being parsed as well (1 byte is the first character, and another additional 1 Byte is the EOL/NL character in netcat)
