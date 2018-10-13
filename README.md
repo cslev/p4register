@@ -42,3 +42,8 @@ If one character is sent by the client to the server, the application replaces t
  ```
  Note that my two interfaces were `eno3` and `eno4`, and don't forget the `--log-console` to have the debugging 'print-outs'.
  
+ ## Reading registers during running (if needed)
+ ```
+ # simple_switch_CLI --thrift-port 9090
+ # register_read r
+ ```
