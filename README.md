@@ -13,7 +13,7 @@ If one character is sent by the client to the server, the application replaces t
 |` `                                    | `d`                                 |
 
 # Additional features
- - TCP payload, or at least 2 bytes in the beginning of it is being parsed as well
+ - TCP payload, or at least 2 bytes in the beginning of it is being parsed as well (1 byte is the first character, and another additional 1 Byte is the EOL/NL character in netcat)
  - TCP Checksum recalculation as we modify the payload
  - Debugging outputs for different headers
  
