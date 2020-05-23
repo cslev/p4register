@@ -589,7 +589,7 @@ control MyIngress(inout headers hdr,
 
     action drop()
     {
-        mark_to_drop();
+        mark_to_drop(standard_metadata);
     }
 
     // ----------------- PORT FORWARD ACTIONS AND RULES -------------------
@@ -612,8 +612,8 @@ control MyIngress(inout headers hdr,
         default_action = drop;
         const entries =
         {
-            0 : portfwd(1);
-            1 : portfwd(0);
+            1 : portfwd(2);
+            2 : portfwd(1);
         }
     }
 
